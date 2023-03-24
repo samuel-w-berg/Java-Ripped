@@ -18,3 +18,74 @@
 .collection-item form {
   margin-top: -5px;
 }
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Style the navigation bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  color: #ccc;
+}
+
+nav img {
+  height: 24px;
+}
+
+.login img {
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+/* Add a top margin to the main element */
+main {
+  margin-top: 60px;
+}
+
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Style the table header */
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style the table rows */
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}

@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<form action="/workouts" method="POST">
+    <label>Workout</label>
+    <select name="name">
+        <option value="Chest">Chest</option>
+        <option value="Back">Back</option>
+        <option value="Arms">Arms</option>
+        <option value="Legs">Legs</option>
+    </select>
+    <label>Date</label>
+    <input type="text" name="date">
+</form>
+<%- include('../partials/footer') %>
