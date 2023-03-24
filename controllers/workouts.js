@@ -4,7 +4,8 @@ const WorkoutModel = require('../models/workout');
 module.exports = {
     index,
     new: newWorkout,
-    create
+    create,
+    show
 }
 
 async function index(req, res){
@@ -34,4 +35,14 @@ try{
     console.log(err);
     res.send(err);
 }
+}
+
+async function show(req, res){
+    try{
+        const showExercise = WorkoutModel.findById(req.params.id)
+        res.render('workouts/show', {workout: showExercise})
+    }catch (err){
+        console.log(err);
+        res.send(err);
+    }
 }
