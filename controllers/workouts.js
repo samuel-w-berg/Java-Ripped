@@ -4,6 +4,7 @@ const WorkoutModel = require('../models/workout');
 module.exports = {
     index,
     new: newWorkout,
+    create
 }
 
 async function index(req, res){
@@ -23,4 +24,14 @@ async function newWorkout(req, res){
         console.log(err);
         res.send(err);
     }
+}
+
+async function create(req, res){
+try{
+    const newWorkout = WorkoutModel.create(req.body)
+    res.redirect(`/workouts`)
+}catch(err){
+    console.log(err);
+    res.send(err);
+}
 }

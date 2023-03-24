@@ -16,7 +16,7 @@ const exerciseSchema = new mongoose.Schema({
 const workoutSchema = new mongoose.Schema({
     name: {
         type: String,
-        enum: ['Push Day', 'Pull Day']
+        enum: ['Chest', 'Back', 'Arms', 'Legs']
     },
     date: Date,
     exercises: [exerciseSchema]
