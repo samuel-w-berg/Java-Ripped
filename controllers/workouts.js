@@ -39,7 +39,7 @@ try{
 
 async function show(req, res){
     try{
-        const showExercise = WorkoutModel.findById(req.params.id)
+        const showExercise = await WorkoutModel.findById(req.params.id)
         res.render('workouts/show', {workout: showExercise})
     }catch (err){
         console.log(err);

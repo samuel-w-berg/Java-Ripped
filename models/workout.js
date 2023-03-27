@@ -3,11 +3,10 @@ const mongoose = require('mongoose');
 
 // Define exercise schema
 const exerciseSchema = new mongoose.Schema({
-    name: {
-        type: String,
-    },
-    intensity: String,
-    volume: String,
+    name: String,
+    weight: Number,
+    sets: Number,
+    reps: Number,
     comments: String
 })
 
