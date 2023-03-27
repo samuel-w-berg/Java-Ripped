@@ -7,7 +7,10 @@ const exerciseSchema = new mongoose.Schema({
     weight: Number,
     sets: Number,
     reps: Number,
-    comments: String
+    comments: String,
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
+    username: String,
+    userAvatar: String
 })
 
 

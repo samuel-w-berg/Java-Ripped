@@ -47,6 +47,8 @@ passport.deserializeUser(function(userId, cb) {
   UserModel.findById(userId)
             .then(function(userDoc){
               cb(null, userDoc)  // this part assigns userDoc to req.user
+            }).catch(err => {
+              cb(err)
             })
   // When you call this cb function passport assigns the user document to req.user, which will 
   // be availible in every Single controller function, so you always know the logged in user
