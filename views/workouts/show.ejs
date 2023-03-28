@@ -29,9 +29,6 @@
                   <form action="/exercises/<%= e._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                   </form>
-                  <% } else { %>
-                    <p>User ID: <%= user._id %></p>
-                    <p>Exercise User ID: <%= e.userId %></p>
                 <% } %>
               </td>
             </tr>

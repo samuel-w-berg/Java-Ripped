@@ -21,7 +21,10 @@ const workoutSchema = new mongoose.Schema({
         enum: ['Chest', 'Back', 'Arms', 'Legs']
     },
     date: Date,
-    exercises: [exerciseSchema]
+    exercises: [exerciseSchema],
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
+    username: String,
+    userAvatar: String
 })
 
 

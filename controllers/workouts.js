@@ -5,7 +5,26 @@ module.exports = {
     index,
     new: newWorkout,
     create,
-    show
+    show,
+    delete: deleteWorkout
+}
+
+async function deleteWorkout(req, res){
+    try{
+        // await WorkoutModel.findOneAndDelete(
+        //     {_id: req.params.id,
+        //     userId: req.user._id,
+        //     })
+        // console.log(workoutDoc, '<--- this is the workoutDoc');
+        // console.log(req.params.id, '<====This is the params ID');
+        // console.log(req.user._id, "<--- this is the user _id");
+        await WorkoutModel.findByIdAndDelete(req.params.id);
+        // workoutDoc.save()
+        res.redirect(`/workouts`);
+    }catch(err){
+        console.log(err, '<--- this is the error')
+        res.send(err)
+    }
 }
 
 async function index(req, res){
@@ -29,7 +48,10 @@ async function newWorkout(req, res){
 
 async function create(req, res){
 try{
-    const newWorkout = WorkoutModel.create(req.body)
+    req.body.username = req.user.name;
+    req.body.userId = req.user._id;
+    req.body.userAvatar = req.user.avatar;
+    const newWorkout = await WorkoutModel.create(req.body);
     res.redirect(`/workouts`)
 }catch(err){
     console.log(err);

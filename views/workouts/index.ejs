@@ -5,7 +5,8 @@
       <tr>
         <th>Workout</th>
         <th>Date</th>
-        <th></th>
+        <th>Exercise List</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,13 @@
           <td><%= w.name %></td>
           <td><%= w.date %></td>
           <td><a href="/workouts/<%= w._id %>">Exercises</a></td>
+          <td>
+            <% if (user && user._id.equals(w.userId)) { %>
+              <form action="/workouts/<%= w._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
         </tr>
         <% }); %>
       </tbody>
