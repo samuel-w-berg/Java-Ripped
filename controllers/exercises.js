@@ -77,3 +77,11 @@ async function create(req, res){
         res.send(err);
     }
 }
+async function addExercise(){
+    try{
+
+    }catch(err){
+        console.log(err);
+        res.send(err);
+    }
+}
