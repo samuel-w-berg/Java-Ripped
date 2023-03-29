@@ -1,5 +1,5 @@
 const WorkoutModel = require('../models/workout');
-
+const ExerciseModel = require('../models/exercise');
 
 module.exports = {
     index,
@@ -61,8 +61,10 @@ try{
 
 async function show(req, res){
     try{
-        const showExercise = await WorkoutModel.findById(req.params.id)
-        res.render('workouts/show', {workout: showExercise})
+        const workoutDoc = await WorkoutModel.findById(req.params.id).populate('exercises').exec();
+        console.log(workoutDoc, '<---- this is the workoutDoc');
+        const exercisesNotInWorkout = await ExerciseModel.find({ _id: { $nin: workoutDoc.exercises } });
+        res.render('workouts/show', {workout: workoutDoc, exercisesNotInWorkout})
     }catch (err){
         console.log(err);
         res.send(err);

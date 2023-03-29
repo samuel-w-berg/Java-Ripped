@@ -23,8 +23,6 @@
               <td><%= e.reps %></td>
               <td><%= e.comments %></td>
               <td>
-                <% console.log(user, "<----- this is the user") %>
-                <%console.log(e, "<----- this is the e")  %>
                 <% if (user && user._id.equals(e.userId)) { %>
                   <form action="/exercises/<%= e._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>

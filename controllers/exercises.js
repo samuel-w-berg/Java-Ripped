@@ -2,9 +2,9 @@ const WorkoutModel = require('../models/workout');
 const ExerciseModel = require('../models/exercise');
 
 module.exports = {
-    create,
     delete: deleteExercise,
-    progress
+    progress,
+    addToWorkout,
 }
 
 async function progress(req, res) {
@@ -14,11 +14,13 @@ async function progress(req, res) {
     //   const exerciseName = req.body.name;
   
       // Find all workouts with the given userId
-      const workouts = await ExerciseModel.find({ userId: userId, 'name':req.query.name });
+      const workouts = await WorkoutModel.find({ userId: userId, 'name':req.query.name });
         console.log(workouts, "<--- workouts that have the userID")
       const exercises = [];
   
       // Iterate through all workouts and find exercises with the given exerciseName
+      ExercizeModel.find()
+      
       workouts.forEach(workout => {
         workout.exercises.forEach(exercise => {
             console.log(exercise,'<---- exercise in for each')
@@ -59,29 +61,24 @@ async function deleteExercise(req, res){
     }
 }
 
-async function create(req, res){
+async function addToWorkout(req, res){
     try{
         const workoutDoc = await WorkoutModel.findById(req.params.id);
-        console.log(req.user, "<---- This is the error");
+        
         req.body.username = req.user.name;
         req.body.userId = req.user._id;
         req.body.userAvatar = req.user.avatar;
-
-        savedNewExercise = await ExerciseModel.create(req.body);
-        workoutDoc.exercises.push(savedNewExercise._id);
+        // this comes from the show.ejs page, it's the name of the select drop-down
+        // const exerciseName = await ExerciseModel.findOne(req.body.exerciseId)
+        console.log(req.body);
+        const newExercise = await ExerciseModel.create(req.body);
+        workoutDoc.exercises.push(newExercise._id);
         await workoutDoc.save();
-
+        
         res.redirect(`/workouts/${req.params.id}`);
     }catch(err){
         console.log(err);
         res.send(err);
     }
 }
-async function addExercise(){
-    try{
 
-    }catch(err){
-        console.log(err);
-        res.send(err);
-    }
-}

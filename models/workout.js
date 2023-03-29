@@ -10,7 +10,7 @@ const workoutSchema = new mongoose.Schema({
     date: Date,
     exercises: [
         {
-          type: Schema.Types.ObjectId,
+          type: mongoose.Schema.Types.ObjectId,
           ref: 'Exercise'
         }
       ],
