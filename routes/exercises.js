@@ -7,3 +7,5 @@ router.post('/workouts/:id/exercises', exerciseCtrl.create);
 router.delete('/exercises/:id', exerciseCtrl.delete);
 
 module.exports = router;
+
+console.log('this is a test');
