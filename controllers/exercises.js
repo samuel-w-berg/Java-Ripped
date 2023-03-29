@@ -1,4 +1,5 @@
 const WorkoutModel = require('../models/workout');
+const ExerciseModel = require('../models/exercise');
 
 module.exports = {
     create,
@@ -13,7 +14,7 @@ async function progress(req, res) {
     //   const exerciseName = req.body.name;
   
       // Find all workouts with the given userId
-      const workouts = await WorkoutModel.find({ userId: userId, 'exercises.name':req.query.name });
+      const workouts = await ExerciseModel.find({ userId: userId, 'name':req.query.name });
         console.log(workouts, "<--- workouts that have the userID")
       const exercises = [];
   
@@ -44,6 +45,7 @@ async function progress(req, res) {
 
 async function deleteExercise(req, res){
     try{
+        // deletes exercise from the workout
         const workoutDoc = await WorkoutModel.findOne({
             "exercises._id": req.params.id,
             "exercises.userId": req.user._id,
@@ -65,7 +67,8 @@ async function create(req, res){
         req.body.userId = req.user._id;
         req.body.userAvatar = req.user.avatar;
 
-        workoutDoc.exercises.push(req.body);
+        savedNewExercise = await ExerciseModel.create(req.body);
+        workoutDoc.exercises.push(savedNewExercise._id);
         await workoutDoc.save();
 
         res.redirect(`/workouts/${req.params.id}`);
