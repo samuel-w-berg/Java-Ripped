@@ -1,5 +1,7 @@
 <%- include('../partials/header') %>
-<a href="/workouts/new">Add Workouts</a>
+
+<h1>Workout History</h1>
+
 <table id="list">
     <thead>
       <tr>
@@ -13,7 +15,7 @@
       <% workouts.forEach(function(w) { %>
         <tr>
           <td><%= w.name %></td>
-          <td><%= w.date %></td>
+          <td><%= w.date.toLocaleDateString() %></td>
           <td><a href="/workouts/<%= w._id %>">Exercises</a></td>
           <td>
             <% if (user && user._id.equals(w.userId)) { %>
@@ -26,4 +28,6 @@
         <% }); %>
       </tbody>
     </table>
+    
+    <a href="/workouts/new">Add Workouts</a>
 <%- include('../partials/footer') %>
