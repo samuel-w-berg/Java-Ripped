@@ -85,7 +85,7 @@ async function addToWorkout(req, res){
         req.body.username = req.user.name;
         req.body.userId = req.user._id;
         req.body.userAvatar = req.user.avatar;
-        req.body.date = workoutDoc.date;
+        req.body.date = workoutDoc.date
         // this comes from the show.ejs page, it's the name of the select drop-down
         // const exerciseName = await ExerciseModel.findOne(req.body.exerciseId)
         console.log(req.body);

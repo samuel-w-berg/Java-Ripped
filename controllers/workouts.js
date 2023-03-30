@@ -29,7 +29,7 @@ async function deleteWorkout(req, res){
 
 async function index(req, res){
     try {
-        const allWorkouts = await WorkoutModel.find({})
+        const allWorkouts = await WorkoutModel.find({}).sort({date:-1})
         res.render('workouts/index', {workouts: allWorkouts});
     } catch (err){
         console.log(err);

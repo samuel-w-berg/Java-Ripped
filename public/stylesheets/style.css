@@ -1,24 +1,3 @@
-.brand-logo {
-  margin-left: 15px;
-}
-
-.card .card-content .card-title {
-  margin-bottom: 10px;
-}
-
-#search-row form {
-  padding-top: 20px;
-}
-
-.student-name {
-  position: relative;
-  top: -5px;
-}
-
-.collection-item form {
-  margin-top: -5px;
-}
-
 /* Reset default styles */
 * {
   margin: 0;
@@ -88,4 +67,41 @@ th {
 td {
   padding: 8px;
   border-bottom: 1px solid #ddd;
+}
+
+/* Homescreen image and text overlay */
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  display:inline-block;
+  width: 200vh;
+  height: 100vh;
+  object-fit: fill;
+  z-index: -1;
+  margin-top: -20px;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 200vh;
+  height: 100vh;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  text-align: center;
+  color: white; /* Change the text color to your preference */
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the background color and opacity as needed */
+}
+
+.text-overlay h1 {
+  font-size: 48px; /* Adjust the font size as needed */
+  margin-top: 50px;
 }
