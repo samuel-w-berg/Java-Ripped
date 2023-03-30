@@ -4,6 +4,6 @@ const exerciseCtrl = require('../controllers/exercises');
 
 router.get('/workouts/progression', exerciseCtrl.progress);
 router.post('/workouts/:id/exercises', exerciseCtrl.addToWorkout);
-router.delete('/exercises/:id', exerciseCtrl.delete);
+router.delete('/exercises/:id/:workout', exerciseCtrl.delete);
 
 module.exports = router;

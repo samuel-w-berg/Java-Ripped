@@ -24,7 +24,7 @@
               <td><%= e.comments %></td>
               <td>
                 <% if (user && user._id.equals(e.userId)) { %>
-                  <form action="/exercises/<%= e._id %>?_method=DELETE" method="POST">
+                  <form action="/exercises/<%= e._id %>/<%=workout._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                   </form>
                 <% } %>

@@ -12,7 +12,8 @@ const exerciseSchema = new mongoose.Schema({
     comments: String,
     userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
     username: String,
-    userAvatar: String
+    userAvatar: String,
+    date: Date
 })
 
 module.exports = mongoose.model("Exercise", exerciseSchema);
