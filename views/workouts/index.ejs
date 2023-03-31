@@ -3,7 +3,12 @@
   <img src="https://i.imgur.com/Zvntpvv.png" alt="Outline of a person stretching">
   <div class="overlay">
   <br>
-  <a class="section-label" href="/workouts/new">Add Workouts</a>
+  <% if (user){ %>
+<a class="section-label" href="/workouts/new">Add Workouts</a>
+  <% } else { %>
+    <span>Please Login</span>
+
+    <%} %>
   <br>
 
   <h1 class="section-label">Workout History</h1>
@@ -19,12 +24,12 @@
       </thead>
       <tbody>
         <% workouts.forEach(function(w) { %>
+          <% if (user && user._id.equals(w.userId)) { %>
           <tr>
             <td class="thead"><%= w.name %></td>
             <td class="thead"><%= w.date.toLocaleDateString() %></td>
             <td class="thead"><a href="/workouts/<%= w._id %>">Exercises</a></td>
             <td class="thead">
-              <% if (user && user._id.equals(w.userId)) { %>
                 <form action="/workouts/<%= w._id %>?_method=DELETE" method="POST">
                   <button type="submit">X</button>
                 </form>
