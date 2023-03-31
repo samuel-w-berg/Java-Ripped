@@ -9,7 +9,18 @@ Java-Ripped is a web-based workout tracker that allows users to create, manage, 
 - Add and remove exercises to workouts
 - Track exercise progress over time
 - View workout history
-- Responsive design for desktop and mobile devices
+
+## Screenshots
+
+<img src="https://i.imgur.com/FxkJJkD.png">
+
+<img src="https://i.imgur.com/XJG62g1.png">
+
+<img src="https://i.imgur.com/Ytym3hx.png">
+
+<img src="https://i.imgur.com/DLlchJE.png">
+
+<img src="https://i.imgur.com/8rTOjbp.png">
 
 ## Technologies
 
@@ -20,25 +31,21 @@ Java-Ripped is a web-based workout tracker that allows users to create, manage, 
 - EJS (Embedded JavaScript)
 - Passport.js
 - CSS
+- HTML
+- JavaScript
 
 ## Getting Started
 
-### Prerequisites
+- Link to deployed app: https://itchy-tick-jersey.cyclic.app/
+- Trello Board: https://trello.com/b/yIG1iawM/java-ripped-board
 
-Make sure you have Node.js and MongoDB installed on your local machine.
+## Next Steps
 
-### Installation
+- Java-Ripped will suggest doing exercises if they have not been done for a while
+- Java-Ripped will point out exercises that have been stagnant
+- Include a drop down menu to cut down on user error when inputting exercises
+- Lock more features behind user sign-in
 
-1. Clone the repository: git clone https://github.com/yourusername/Java-Ripped.git
-
-2. Change the current directory to the project directory: cd Java-Ripped
-
-3. Install the required dependencies:
-npm install
-
-4. Set up environment variables:
-
-Create a `.env` file in the project root directory and add the following variables:
 
 
 
