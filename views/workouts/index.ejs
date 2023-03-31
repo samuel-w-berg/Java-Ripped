@@ -1,33 +1,39 @@
 <%- include('../partials/header') %>
+<div class="image-container">
+  <img src="https://i.imgur.com/Zvntpvv.png" alt="Outline of a person stretching">
+  <div class="overlay">
+  <br>
+  <a class="section-label" href="/workouts/new">Add Workouts</a>
+  <br>
 
-<h1>Workout History</h1>
+  <h1 class="section-label">Workout History</h1>
 
-<table id="list">
-    <thead>
-      <tr>
-        <th>Workout</th>
-        <th>Date</th>
-        <th>Exercise List</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% workouts.forEach(function(w) { %>
+  <table class="table">
+      <thead class="thead">
         <tr>
-          <td><%= w.name %></td>
-          <td><%= w.date.toLocaleDateString() %></td>
-          <td><a href="/workouts/<%= w._id %>">Exercises</a></td>
-          <td>
-            <% if (user && user._id.equals(w.userId)) { %>
-              <form action="/workouts/<%= w._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-              </form>
-            <% } %>
-          </td>
+          <th>Workout</th>
+          <th>Date</th>
+          <th>Exercise List</th>
+          <th>Delete</th>
         </tr>
-        <% }); %>
-      </tbody>
-    </table>
-    
-    <a href="/workouts/new">Add Workouts</a>
+      </thead>
+      <tbody>
+        <% workouts.forEach(function(w) { %>
+          <tr>
+            <td class="thead"><%= w.name %></td>
+            <td class="thead"><%= w.date.toLocaleDateString() %></td>
+            <td class="thead"><a href="/workouts/<%= w._id %>">Exercises</a></td>
+            <td class="thead">
+              <% if (user && user._id.equals(w.userId)) { %>
+                <form action="/workouts/<%= w._id %>?_method=DELETE" method="POST">
+                  <button type="submit">X</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      </div>
+    </div>
 <%- include('../partials/footer') %>

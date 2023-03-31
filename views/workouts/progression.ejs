@@ -1,40 +1,43 @@
 <%- include('../partials/header') %>
+<div class="image-container">
+  <img src="https://i.imgur.com/L0dZ00f.png" alt="Outline of a person pulling a boulder">
+    <div class="overlay">
+      <h1 class="section-label">Check Progress</h1>
 
-<form action="/workouts/progression" method="GET">
-    <label>Exercise Name</label>
-    <input type="text" name="name"><br>
-    <input type="submit" value="See Progress">
-</form>
-
-<h1>Exercise History</h1>
-
-  <% if (exercises.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Name</th>
-          <th>Weight</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Comments</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% exercises.forEach(function(exercise) { %>
-          <tr>
-            <td><%= exercise.date.toLocaleDateString() %> </td>
-            <td><%= exercise.name %></td>
-            <td><%= exercise.weight %></td>
-            <td><%= exercise.sets %></td>
-            <td><%= exercise.reps %></td>
-            <td><%= exercise.comments %></td>
-          </tr>
-        <% }); %>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h5>No exercise history found</h5>
-  <% } %>
-
+      <form class ="inputForm" action="/workouts/progression" method="GET">
+          <label>Exercise Name</label>
+          <input type="text" name="name"><br>
+          <input type="submit" value="See Progress">
+      </form>
+        <br>
+        <% if (exercises.length) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Weight</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% exercises.forEach(function(exercise) { %>
+                <tr>
+                  <td><%= exercise.date.toLocaleDateString() %> </td>
+                  <td><%= exercise.name %></td>
+                  <td><%= exercise.weight %></td>
+                  <td><%= exercise.sets %></td>
+                  <td><%= exercise.reps %></td>
+                  <td><%= exercise.comments %></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        <% } else { %>
+          <h5 class="section-label">No exercise history found</h5>
+        <% } %>
+    </div>
+</div>
 <%- include('../partials/footer') %>

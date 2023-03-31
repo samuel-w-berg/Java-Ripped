@@ -1,16 +1,23 @@
 <%- include('../partials/header') %>
-<form action="/workouts" method="POST">
-    <label>Workout</label>
-    <select name="name">
-        <option value="Chest">Chest</option>
-        <option value="Back">Back</option>
-        <option value="Arms">Arms</option>
-        <option value="Legs">Legs</option>
-    </select>
-    <br>
-    <label>Date</label>
-    <input type="date" name="date">
-    <br>
-    <input type="submit" value="Add Workout">
-</form>
+<div class="image-container">
+    <img src="https://i.imgur.com/2GQI6rN.png" alt="Outline of a person doing yoga">
+    <div class="overlay">
+        <br>
+        <h3 class="section-label">Add a Workout</h3>
+        <form class="inputForm" action="/workouts" method="POST">
+            <label>Workout</label>
+        <select name="name">
+            <option value="Chest">Chest</option>
+            <option value="Back">Back</option>
+            <option value="Arms">Arms</option>
+            <option value="Legs">Legs</option>
+        </select>
+        <br>
+        <label>Date</label>
+        <input type="date" name="date">
+        <br>
+        <input type="submit" value="Add Workout">
+    </form>
+    </div>
+</div>
 <%- include('../partials/footer') %>

@@ -1,58 +1,64 @@
 <%- include('../partials/header') %>
+<div class="image-container">
+  <img src="https://i.imgur.com/Oz0umsu.png" alt="Outline of a person doing push ups">
+    <div class="overlay">
+      <h1 class="section-label"><%= workout.name %> Exercises</h1>
+      <br>
+      <h3 class="section-label">Add Exercise</h3>
+      <% if (user) { %>
+          <form class ="inputForm" method="POST" action="/workouts/<%= workout._id %>/exercises">
+          <label>Name</label>
+          <input type="text" name="name"><br>
+          <label>Weight</label>
+          <input type="number" name="weight"><br>
+          <label>Sets</label>
+          <input type="number" name="sets"><br>
+          <label>Reps</label>
+          <input type="number" name="reps"><br>
+          <label>Comments</label>
+          <input type="text" name="comments"><br>
+          <input type="submit" value="Add Exercise">
+          </form>
+          <% } else { %>
+              <span>Please Login in order to add an exercise</span>
+              <%} %>
+              <br>
 
-<h1><%= workout.name %> Exercises</h1>
+      <% if (workout.exercises.length) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Weight</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Comments</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% workout.exercises.forEach(function(e) { %>
+                  <tr>
+                    <td><%= e.name %></td>
+                    <td><%= e.weight %></td>
+                    <td><%= e.sets %></td>
+                    <td><%= e.reps %></td>
+                    <td><%= e.comments %></td>
+                    <td>
+                      <% if (user && user._id.equals(e.userId)) { %>
+                        <form action="/exercises/<%= e._id %>/<%=workout._id %>?_method=DELETE" method="POST">
+                          <button type="submit">X</button>
+                        </form>
+                      <% } %>
+                    </td>
+                  </tr>
+                    <% }); %>
+            </tbody>
+          </table>
+          <% } else { %>
+            <h5 class="section-label">No Exercises Yet</h5>
+            <% } %>
+    </div>
+    </div>
 
-<% if (workout.exercises.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Weight</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Comments</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% workout.exercises.forEach(function(e) { %>
-            <tr>
-              <td><%= e.name %></td>
-              <td><%= e.weight %></td>
-              <td><%= e.sets %></td>
-              <td><%= e.reps %></td>
-              <td><%= e.comments %></td>
-              <td>
-                <% if (user && user._id.equals(e.userId)) { %>
-                  <form action="/exercises/<%= e._id %>/<%=workout._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
-                  </form>
-                <% } %>
-              </td>
-            </tr>
-              <% }); %>
-      </tbody>
-    </table>
-    <% } else { %>
-      <h5>No Exercises Yet</h5>
-      <% } %>
-
-<h3>Add Exercise</h3>
-<% if (user) { %>
-    <form method="POST" action="/workouts/<%= workout._id %>/exercises">
-    <label>Name</label>
-    <input type="text" name="name"><br>
-    <label>Weight</label>
-    <input type="number" name="weight"><br>
-    <label>Sets</label>
-    <input type="number" name="sets"><br>
-    <label>Reps</label>
-    <input type="number" name="reps"><br>
-    <label>Comments</label>
-    <input type="text" name="comments"><br>
-    <input type="submit" value="Add Exercise">
-    </form>
-    <% } else { %>
-        <span>Please Login in order to add an exercise</span>
-        <%} %>
 <%- include('../partials/footer') %>

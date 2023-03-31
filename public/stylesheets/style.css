@@ -48,26 +48,6 @@ main {
   margin-top: 60px;
 }
 
-/* Style the table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-/* Style the table header */
-th {
-  background-color: #f2f2f2;
-  text-align: left;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
-
-/* Style the table rows */
-td {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
 
 /* Homescreen image and text overlay */
 .image-container {
@@ -81,11 +61,11 @@ td {
   height: auto;
   object-fit: fill;
   z-index: -1;
-  margin-top: -20px;
+  margin-top: -25px;
   min-height: 100vh;
 }
 
-.text-overlay {
+.home-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -94,7 +74,7 @@ td {
   width: 100%;
   height: auto;
   object-fit: fill;
-  margin-top: -20px;
+  margin-top: -25px;
   display: flex;
   flex-direction: column;
   justify-content: top;
@@ -104,8 +84,74 @@ td {
   background-color: rgba(0, 0, 0, 0.5); /* Adjust the background color and opacity as needed */
 }
 
-.text-overlay h1 {
+.home-overlay h1 {
   font-size: 48px; /* Adjust the font size as needed */
   margin-top: 50px;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+  margin-top: -25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  text-align: center;
+  color: black; /* Change the text color to your preference */
+  background-color: rgba(0, 0, 0, 0.2); /* Adjust the background color and opacity as needed */
+}
+
+#addWorkout {
+  font-family: Arial, sans-serif;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.section-label {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* General form styles */
+.inputForm {
+  font-family: Arial, sans-serif;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 25%;
+  background-color: #f9f9f9;
+}
+
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Style the table header */
+.th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style the table rows */
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
